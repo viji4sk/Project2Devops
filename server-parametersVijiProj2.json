@@ -1,0 +1,10 @@
+[
+	{
+		"ParameterKey": "EnvironmentName",
+		"ParameterValue": "UdacityProject2Viji"	
+	},
+	{
+		"ParameterKey": "S3Role",
+		"ParameterValue": "EC2-Access-S3-New"
+	}
+]
