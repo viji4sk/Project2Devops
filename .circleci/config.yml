@@ -2,6 +2,14 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
+workflows:
+  test-env-vars:
+  say-hello-workflow:
+    jobs:
+      - say-hello
+      - say-world:
+          requires: [say-hello]
+
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
@@ -28,14 +36,8 @@ jobs:
       - checkout
       - run:
           name: "Say World"
-          command: echo $MY_VAR_VIJI       
+          command: 
+            echo $MY_VAR_VIJI  # this env var must be set within the project      
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
-workflows:
-  test-env-vars:
-  say-hello-workflow:
-    jobs:
-      - say-hello
-      - say-world:
-          requires: [say-hello]
